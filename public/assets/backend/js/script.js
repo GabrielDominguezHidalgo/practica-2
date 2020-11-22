@@ -1,8 +1,8 @@
 (function () {
 
-    let createEnterpriseForm = document.getElementById('createEnterpriseForm');
-    if(createEnterpriseForm) {
-        createEnterpriseForm.addEventListener('submit', function(event) {
+    let createMonedaForm = document.getElementById('createMonedaForm');
+    if(createMonedaForm) {
+        createMonedaForm.addEventListener('submit', function(event) {
             if(1 == 1) {
                 //submit
             } else {
@@ -21,7 +21,7 @@
     
     function getClassConfirmation(event) {
         let id = event.target.dataset.id; //data-id
-        let retVal = confirm('Sure to delete the enterprise number #' + id + '?');
+        let retVal = confirm('¿Seguro que quieres eliminar la moneda #' + id + '?');
         if(retVal) {
             var formDelete = document.getElementById('formDelete');
             formDelete.action += '/' + id;

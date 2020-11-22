@@ -46,21 +46,6 @@ class MonedaController extends Controller
      */
     public function store(MonedaCreateRequest $request)
     {
-        /*$name1 = $request->input('name');
-        $name2 = $request->name;
-        $name3 = $request->input('name', 'Kekas');
-        $all = $request->all();
-        $input = $request->input();*/
-
-        //1
-        //$moneda = new moneda($request->all());
-        //$result = $moneda->save();
-        //$result - número de registros guardados, $moneda->id
-        //2
-        //$moneda = moneda::create($request->all());
-        //$moneda->id
-
-        //$moneda = new moneda($request->all());
         $moneda = new Moneda($request->validated());
         try {
             $result = $moneda->save();
@@ -110,8 +95,6 @@ class MonedaController extends Controller
         // 1º Resquest (reglas simples)
         // 2º reglas programar
         // 3º relgas SQL ->
-        $public = $this->uploadPublicFile($request, $moneda->id);
-        $private = $this->uploadPrivateFile($request, $moneda->id);
         try {
             $result = $moneda->update($request->validated());
         } catch (\Exception $e) {
@@ -122,9 +105,7 @@ class MonedaController extends Controller
         if($result) {
             $response = ['op' => 'update',
                         'r' => $result,
-                        'id' => $moneda->id,
-                        'public' => $public,
-                        'private' => $private];
+                        'id' => $moneda->id];
             return redirect('backend/moneda')->with($response);
         } else {
             return back()->withInput()->withErrors(['nombreMoneda' => 'El nombre de la moneda ya existe']);

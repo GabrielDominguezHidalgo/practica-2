@@ -40,32 +40,32 @@
             <input type="text" maxlength="60" minlength="2" required class="form-control" id="nombreMoneda" placeholder="nombre" name="nombreMoneda" value="{{ old('nombreMoneda', $moneda->nombreMoneda) }}">
         </div>
         <div class="form-group">
-            <label for="simbolo">Simbolo de la Moneda</label>
-            @error('simbolo')
+            <label for="simboloMoneda">Simbolo de la Moneda</label>
+            @error('simboloMoneda')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-            <input type="text" maxlength="5" minlength="1" required class="form-control" id="simbolo" placeholder="simbolo" name="simbolo" value="{{ old('simboloMoneda', $moneda->simboloMoneda) }}">
+            <input type="text" maxlength="5" minlength="1" required class="form-control" id="simboloMoneda" placeholder="simbolo" name="simboloMoneda" value="{{ old('simboloMoneda', $moneda->simboloMoneda) }}">
         </div>
         <div class="form-group">
-            <label for="pais">Pais de la Moneda</label>
-            @error('pais')
+            <label for="paisMoneda">Pais de la Moneda</label>
+            @error('paisMoneda')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-            <input type="text" maxlength="100" minlength="2" required class="form-control" id="pais" placeholder="pais" name="pais" value="{{ old('paisMoneda', $moneda->paisMoneda) }}">
+            <input type="text" maxlength="100" minlength="2" required class="form-control" id="paisMoneda" placeholder="pais" name="paisMoneda" value="{{ old('paisMoneda', $moneda->paisMoneda) }}">
         </div>
         <div class="form-group">
-            <label for="valor">Valor de la Moneda (Basado en euros)</label>
-            @error('valor')
+            <label for="valorMoneda">Valor de la Moneda (Basado en euros)</label>
+            @error('valorMoneda')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-            <input type="number" step=".01" min="0" max="99999" required class="form-control" id="valor" placeholder="valor" name="valor" value="{{ old('valorMoneda', $moneda->valorMoneda) }}">
+            <input type="number" step=".01" min="0" max="99999" required class="form-control" id="valorMoneda" placeholder="valor" name="valorMoneda" value="{{ old('valorMoneda', $moneda->valorMoneda) }}">
         </div>
         <div class="form-group">
-            <label for="fecha">Fecha de la Moneda</label>
-            @error('fecha')
+            <label for="fechaMoneda">Fecha de la Moneda</label>
+            @error('fechaMoneda')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-            <input type="date" required class="form-control" name="fecha" id="fecha" placeholder="fecha" value="{{ old('fechaMoneda', $moneda->fechaMoneda) }}"></input>
+            <input type="date" required class="form-control" name="fechaMoneda" id="fechaMoneda" placeholder="fecha" value="{{ old('fechaMoneda', $moneda->fechaMoneda) }}"></input>
         </div>
     </div>
     <!-- /.card-body -->

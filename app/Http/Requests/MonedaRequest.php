@@ -26,10 +26,10 @@ trait MonedaRequest
     {
         return [
             'nombreMoneda'  => 'required|min:2|max:60',
-            'simbolo'       => 'required|min:1|max:5',
-            'pais'          => 'required|min:2|max:100',
-            'valor'         => 'required|min:0|max:99999',
-            'fecha'         => 'required',
+            'simboloMoneda'       => 'required|min:1|max:5',
+            'paisMoneda'          => 'required|min:2|max:100',
+            'valorMoneda'         => 'required|min:0|max:99999',
+            'fechaMoneda'         => 'required',
         ];
     }
     
@@ -42,26 +42,26 @@ trait MonedaRequest
             'nombreMoneda.required' => $required,
             'nombreMoneda.min'      => $min,
             'nombreMoneda.max'      => $max,
-            'simbolo.required' => $required,
-            'simbolo.min'      => $min,
-            'simbolo.max'      => $max,
-            'pais.required' => $required,
-            'pais.min'      => $min,
-            'pais.max'      => $max,
-            'valor.required' => $required,
-            'valor.min'      => $min,
-            'valor.max'      => $max,
-            'fecha.required' => $required,
+            'simboloMoneda.required' => $required,
+            'simboloMoneda.min'      => $min,
+            'simboloMoneda.max'      => $max,
+            'paisMoneda.required' => $required,
+            'paisMoneda.min'      => $min,
+            'paisMoneda.max'      => $max,
+            'valorMoneda.required' => $required,
+            'valorMoneda.min'      => $min,
+            'valorMoneda.max'      => $max,
+            'fechaMoneda.required' => $required,
         ];
     }
     
     public function attributes() {
         return [
             'nombreMoneda'      => 'nombre de la moneda',
-            'simbolo'   => 'simbolo de la moneda',
-            'pais'      => 'pais de la moneda',
-            'valor'     => 'valor en euros',
-            'fecha'     => 'fecha de la moneda',
+            'simboloMoneda'   => 'simbolo de la moneda',
+            'paisMoneda'      => 'pais de la moneda',
+            'valorMoneda'     => 'valor en euros',
+            'fechaMoneda'     => 'fecha de la moneda',
         ];
     }   
 }
