@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BackendController;
+use App\Http\Controllers\MonedaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {return view('welcome');});
+
+Route::get('backend', [BackendController::class, 'main'])->name('backend.main');
+Route::resource('ticket', TicketController::class, ['names' => 'ticket'])->only(['index', 'show']);
+Route::resource('backend/ticket', BackendTicketController::class, ['names' => 'backend.ticket']);
+Route::resource('backend/enterprise', BackendEnterpriseController::class, ['names' => 'backend.enterprise']);
+// https://..../backend/ticket/create?identerprise=1
+// https://..../backend/ticket/{identerprise}/create
+// https://..../backend/ticket/create/{identerprise}
+Route::get('backend/ticket/create/{identerprise}', [BackendTicketController::class, 'createTicketEp'])->name('backend.ticket.createticketep');
+Route::get('backend/ticket/{identerprise}/tickets', [BackendTicketController::class, 'showTickets'])->name('backend.ticket.showtickets');
+
+Route::get('sesion', [MonedaController::class, 'sesion'])->name('sesion');
+
+Route::get('middleware', [IndexController::class, 'ejemplo'])->middleware('censureFilter');
+
+Route::resource('backend/moneda', MonedaController::class, ['names' => 'backend.moneda']);
+
+Route::get('backend/moneda/create/{idmoneda}', [MonedaController::class, 'create'])->name('backend.moneda.createmonedas');
+Route::get('backend/moneda/{idmoneda}/monedas', [MonedaController::class, 'show'])->name('backend.moneda.showmonedas');
+
+
